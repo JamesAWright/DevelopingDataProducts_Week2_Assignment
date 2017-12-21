@@ -1,0 +1,32 @@
+---
+title: "Developing Data Products: Week 2 Assignment"
+author: "James"
+date: "21 December 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+---
+
+```{r, eval=TRUE, warning=FALSE}
+
+library(leaflet)
+
+dat = read.csv("C:/Users/james/OneDrive/Documents/Data Science/Data Science Online Course/9.Developing_Data_Products/Week2Assignment/DevelopingDataProducts_Week2_Assignment/LondonStarbucks.csv")
+
+
+#popups=c('<a>Home</a>','<a>Work</a>')
+
+popups = dat['address']
+
+df <- data.frame(lat=dat['latitude'], lng=dat['longitude'])
+
+my_map <- df %>% leaflet() %>% 
+        addTiles() %>%
+        addMarkers(popup=popups)
+my_map
+
+```
