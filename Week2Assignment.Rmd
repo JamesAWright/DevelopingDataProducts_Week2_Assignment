@@ -1,6 +1,6 @@
 ---
 title: "Developing Data Products: Week 2 Assignment"
-author: "James"
+author: "James Wright"
 date: "21 December 2017"
 output: ioslides_presentation
 ---
@@ -9,7 +9,9 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
----
+## 60 Random Starbucks Locations in London
+
+Date created: 21st December 2017
 
 ```{r, eval=TRUE, warning=FALSE}
 
@@ -17,21 +19,21 @@ library(leaflet)
 
 dat = read.csv("C:/Users/james/OneDrive/Documents/Data Science/Data Science Online Course/9.Developing_Data_Products/Week2Assignment/DevelopingDataProducts_Week2_Assignment/LondonStarbucks.csv")
 
-StarbucksLogog <- makeIcon("https://github.com/JamesAWright/DevelopingDataProducts_Week2_Assignment/blob/master/Starbucks-Logo.png",
-                           iconWidth = 31*215/230, iconHeight = 31,
+StarbucksLogo <- makeIcon("https://jamesawright.neocities.org/Starbucks-Logo.png",
+                           iconWidth = 50*215/230, iconHeight = 50,
                            iconAnchorX = 31*215/230/2, iconAnchorY = 16
         
 )
 
-#popups=c('<a>Home</a>','<a>Work</a>')
-
-popups = dat['address']
+popups = dat$address
 
 df <- data.frame(lat=dat['latitude'], lng=dat['longitude'])
 
 my_map <- df %>% leaflet() %>% 
         addTiles() %>%
-        addMarkers(popup=popups)
+        addMarkers(icon=StarbucksLogo, popup=popups,
+                   clusterOptions=markerClusterOptions())
+
 my_map
 
 ```
