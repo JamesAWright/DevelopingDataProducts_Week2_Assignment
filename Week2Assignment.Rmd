@@ -17,6 +17,11 @@ library(leaflet)
 
 dat = read.csv("C:/Users/james/OneDrive/Documents/Data Science/Data Science Online Course/9.Developing_Data_Products/Week2Assignment/DevelopingDataProducts_Week2_Assignment/LondonStarbucks.csv")
 
+StarbucksLogog <- makeIcon("https://github.com/JamesAWright/DevelopingDataProducts_Week2_Assignment/blob/master/Starbucks-Logo.png",
+                           iconWidth = 31*215/230, iconHeight = 31,
+                           iconAnchorX = 31*215/230/2, iconAnchorY = 16
+        
+)
 
 #popups=c('<a>Home</a>','<a>Work</a>')
 
